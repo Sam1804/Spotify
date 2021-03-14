@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model AudioProject.Models.AudioModel;
+
+<div class="container h-100">
+    <div class="h-100 d-flex justify-content-center align-items-center text-center">
+        <form class="h-50" method="post" enctype="multipart/form-data" runat="server">
+            <h3><label class="textcolor p-1" asp-for="Name">Name of the Music</label></h3>
+            <input class="textcolor p-1 input-group" asp-for="Name" type="text" placeholder="Name of the music" required oninvalid="alert('You have to insert a name for your music bro !');" /><br />
+            <input class="textcolor p-1 input-group" asp-for="Artiste" type="text" placeholder="Name of the artist" required oninvalid="alert('You have to add a singer');" /> <br />
+            <select class="custom-select" asp-for="Description" type="text" required oninvalid="alert('You have select a genre');">
+                <option value="">--Please choose an Genre--</option>
+                <option value="Rap">Rap</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Techno">Techno</option>
+                <option value="Reggae">Reggae</option>
+                <option value="Rock">Rock</option>
+                <option value="Blues">Blues</option>
+            </select>
+            <input class="textcolor p-1" type="file" name="file" accept=".mp3" required oninvalid="alert('You have to add a mp3 file bro !');" /> <br />
+            <input type="submit" id="SubmitSong" class="btn btn-class" value="Click to upload !" asp-controller="Audio" asp-action="Create"/>
+        </form>
+    </div>
+</div>

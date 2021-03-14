@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center p-2">
+    <h3><label class="textcolor p-2">My Music :</label></h3>
+
+    <div class="container">           
+                <table class="table table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (PlaylistModelAudioModel Songs in ViewData["PlaylistSongs"] as List<PlaylistModelAudioModel>)
+                        {
+                        <tr>
+                            <h3><td class="textcolor">@Songs.Audio.Name</td></h3>
+                            <td class="textcolor">@Songs.Audio.Artiste</td>
+                            <td class="textcolor">@Songs.Audio.Description</td>
+                            <td>   
+                                <form method="post">
+                                    <input type="button" value="Play" id ="test" class="btn btn-class m-1" data-path="@Songs.Audio.FilePath" />
+                                    <input type="submit" class="btn btn-class m-1" value="Remove" asp-controller="Playlist" asp-action="DeleteOnlySong" />
+                                    <input type="hidden" name="AudioId" value="@Songs.AudioId" />
+                                    <input type="hidden" name="PlaylistID" value="@Songs.PlaylistId" />
+                                </form>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <div id="waveform">
+                    <input type="button" value="Play" class="btn btn-class" id="play" />
+                    <input type="button" value="More" class="btn btn-class" id="more" />
+                    <input type="button" value="Less" class="btn btn-class" id="less" />
+                    <input type="button" value="Mute" class="btn btn-class" id="mute" />
+                </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="~/js/song.js"></script>

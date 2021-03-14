@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model AudioProject.Models.AudioModel;
+
+<div class="text-center p-2">
+    <h3><label class="textcolor p-2">My Music :</label></h3>
+
+    <div class="container">
+        <table class=" table table-striped table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Artist</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Playlist</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AudioModel Audio in ViewData["AudioList"] as IList<AudioModel>)
+                {
+                    <div>
+                        <tr>
+                            <h3><td class="textcolor">@Audio.Name</td></h3>
+                            <td class="textcolor">@Audio.Artiste</td>
+                            <td class="textcolor">@Audio.Description</td>
+                            <td>
+                                <form method="post" enctype="multipart/form-data" runat="server">
+                                    <select class="custom-select" name="Playlist" id="Playlist-select">
+                                        <option value="">--Playlist--</option>
+                                        @foreach (PlaylistModel Playlist in ViewData["Playlist"] as List<PlaylistModel>)
+                                        { 
+                                            <option value=@Playlist.ID>@Playlist.NamePlaylist</option>
+                                        }
+                                    </select>
+                            <td>
+                                <input type="submit" class="btn btn-class" value="Send" asp-controller="Audio" asp-action="AddData" />
+                                <input type="submit" class="btn btn-class" value="Delete" asp-controller="Audio" asp-action="Delete" />
+                                <input type="hidden" name="AudioId" value="@Audio.ID" />
+                            </td>
+                            </form>
+                            </td>
+                        </tr>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="~/js/song.js"></script>

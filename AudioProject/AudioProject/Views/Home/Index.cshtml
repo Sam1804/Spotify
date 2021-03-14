@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container h-100">
+    <div class="text-center m-5">
+        <h2>Welcome on SupMusic !</h2>
+    </div>
+    <div class="h-50 d-flex justify-content-center align-items-center p-1">
+        <row>
+            <div class="card textcolor border-secondary bg-light mb-3 p-1 m-3" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Add a music to the site</h5>
+                    <p class="card-text">You can add musics with their genre and artist.</p>
+                    <a class="p-2" asp-area="" asp-controller="Audio" asp-action="Create">
+                        <button type="button" class="btn btn-class p-2"> Add Music</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card textcolor border-secondary bg-light mb-3 p-1 m-3" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">See your music</h5>
+                    <p class="card-text">
+                        Watch your music and add it to your playlists.</p>
+                    <a class="p-2" asp-area="" asp-controller="Audio" asp-action="Display">
+                        <button type="button" class="btn btn-class p-2"> My Music</button>
+                    </a>
+                </div>
+            </div>
+        </row>
+        <row>
+            <div class="card textcolor border-secondary bg-light mb-3 p-1 m-3" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Add a Playlist</h5>
+                    <p class="card-text">Add playlists with personalized descriptions.</p>
+                    <a class="p-2" asp-area="" asp-controller="Playlist" asp-action="Create">
+                        <button type="button" class="btn btn-class p-2"> Add Playlist</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card textcolor border-secondary bg-light mb-3 p-1 m-3" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">See your playlists</h5>
+                    <p class="card-text">Go see your playlists and start the music !</p>
+                    <a class="p-2" asp-area="" asp-controller="Playlist" asp-action="Index">
+                        <button type="button" class="btn btn-class p-2"> My Playlists</button>
+                    </a>
+                </div>
+            </div>
+        </row>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model AudioProject.Models.PlaylistModel;
+
+<div class="container h-100">
+    <div class="h-100 d-flex justify-content-center align-items-center text-center">
+        <form class="h-50" method="post" enctype="multipart/form-data" runat="server">
+            <h3><label class="textcolor p-1" asp-for="NamePlaylist">Name of the Playlist</label></h3>
+            <input class="textcolor input-group" asp-for="NamePlaylist" type="text" placeholder="Name of the playlist" required oninvalid="alert('You have to insert a name for your playlist bro !');" /><br />
+            <input class="textcolor input-group" asp-for="Description" type="text" placeholder="Description of the playlist" required oninvalid="alert('You have to insert a description for your playlist bro !');" /><br />
+            <input type="submit" id="SubmitPlaylist" class="btn btn-class" value="Click to create !" asp-controller="Playlist" asp-action="Create" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AudioProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <header class="p-0 m-o">
+        <nav class="navbar colorfooter border-bottom">
+            <div class="container">
+                <h4><a class="colorfooter p-1 navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AudioProject</a></h4>
+                <h5><a class="colorfooter p-1 nav-link" asp-area="" asp-controller="Audio" asp-action="Display">My Songs</a></h5>
+                <h5><a class="colorfooter p-1 nav-link" asp-area="" asp-controller="Playlist" asp-action="Index">My PlayLists</a></h5>
+                <div>
+                    <partial name="_LoginPartial.cshtml" />
+                </div>
+                <button type="button" class="btn btn-class2" id="theme" value="DarkTheme">DarkTheme</button>
+            </div>
+        </nav>
+    </header>
+            @RenderBody()
+    <footer class="border-top footer colorfooter">
+        <div class="container text-center">
+            &copy; 2021 - AudioProject - 
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
